@@ -1,66 +1,43 @@
-# Hexadecimal to 7-Segment Display Decoder (VHDL RTL)
+# Hexadecimal to Seven-Segment Decoder
 
-## 📌 Project Description
-This project implements a 4-bit Hexadecimal to 7-Segment Display Decoder using VHDL at RTL level for a common cathode display configuration.
+**Author: southpaw**
 
-The design converts a 4-bit hexadecimal input into the corresponding 7-segment output signals based on a predefined truth table.
+A combinational VHDL design converting a four-bit hexadecimal input into
+seven active-high segment signals.
 
----
+| Input | Output | Display convention |
+|---|---|---|
+| hex_in(3 downto 0), 0–F | seg_out(6 downto 0), a–g | Common cathode |
 
-## ⚙️ Design Specifications
+## Implementation
 
-- Language: VHDL
-- Design Level: RTL (Register Transfer Level)
-- Input: 4-bit hexadecimal (hex_in[3:0])
-- Output: 7-bit segment control (seg_out[6:0])
-- Display Type: Common Cathode
-- Verification Method: Functional Simulation using Testbench
+[HexTo7Seg.vhd](HexTo7Seg.vhd) implements the segment mapping using Boolean
+expressions. The repository contains one RTL implementation; a separate
+case-based implementation is not included.
 
----
+## Files
 
-## 🧠 Implementation Approach
+| File | Purpose |
+|---|---|
+| [HexTo7Seg.vhd](HexTo7Seg.vhd) | Decoder RTL |
+| [HexTo7Seg_TB.vhd](HexTo7Seg_TB.vhd) | Input stimulus for simulation |
+| [simulation_waveform.png](simulation_waveform.png) | Historical waveform image |
 
-Two different design methodologies are used:
+## Simulation evidence
 
-### 1️⃣ Behavioral Design
-- Implemented using `case-when` structure
-- Based directly on truth table mapping
+![Historical decoder simulation waveform](simulation_waveform.png)
 
-### 2️⃣ Structural / Logic-Based Design
-- Implemented using Boolean logic expressions
-- Represents hardware-level combinational logic
+The supplied testbench cycles inputs but does not assert expected outputs.
+The image is historical evidence, not a newly executed exhaustive check.
+No simulation, synthesis or hardware test was run for this documentation update.
 
----
+## Hardware integration
 
-## 🧪 Verification
+FPGA board constraints, pin assignments, display drivers and current-limiting
+components are outside this repository. Supply those for the actual board
+before using the design with a physical display.
 
-A dedicated VHDL testbench is created to verify the functionality of the decoder for all hexadecimal input combinations (0–F).
+## Authorship and licensing
 
-Simulation results confirm that the decoder produces correct segment outputs for each input.
-
----
-
-## 📁 Project Files
-
-| File | Description |
-|------|-------------|
-| HexTo7Seg.vhd | RTL implementation |
-| HexTo7Seg_TB.vhd | Testbench for functional verification |
-
----
-
-## 🎯 Learning Outcomes
-
-- Truth table to RTL mapping
-- Combinational logic design using VHDL
-- Behavioral vs Structural hardware modeling
-- Functional verification with testbench
-
----
-
-## 📊 Simulation Result
-
-Functional verification of the design is performed using a VHDL testbench.
-
-![Simulation Waveform](simulation_waveform.png)
-
+Coursework implementation: **southpaw**.
+A project license has not yet been selected.
