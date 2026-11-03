@@ -40,4 +40,4 @@ before using the design with a physical display.
 ## Authorship and licensing
 
 Coursework implementation: **southpaw**.
-A project license has not yet been selected.
+Application code is MIT-licensed (see LICENSE); third-party components keep their own licenses.
